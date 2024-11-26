@@ -31,7 +31,7 @@ public class StringHandler {
         String suffix = generateRandomString();
 
         // 拼接前缀、内容、后缀
-        return prefix + "_" + result.toString() + "_" + suffix;
+        return prefix + "_" + result + "_" + suffix;
     }
 
     private static String generateRandomString() {

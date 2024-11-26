@@ -14,11 +14,12 @@ public class Generator {
         String saltFileName = "salt.txt";
         String originalFileName = "code.txt";
         try {
-            String  salt = FileStringReader.readSmallFile(saltFileName);
+            String salt = FileStringReader.readSmallFile(saltFileName);
             if (salt.isBlank()) {
                 System.out.println("salt is empty");
                 return;
             }
+            salt = salt.trim();
             List<String> originalList = FileStringReader.readAllLines(originalFileName);
             if (originalList.isEmpty()) {
                 System.out.println("originalList is empty");
@@ -28,7 +29,7 @@ public class Generator {
 
             List<String> outPut = new ArrayList<>();
             for (String o : originalList) {
-               String str = StringHandler.transformString(o);
+                String str = StringHandler.transformString(o);
                 String uuid = converter.convert(str);
                 outPut.add(uuid);
             }
