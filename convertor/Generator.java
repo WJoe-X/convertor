@@ -28,7 +28,8 @@ public class Generator {
 
             List<String> outPut = new ArrayList<>();
             for (String o : originalList) {
-                String uuid = converter.convert(o);
+               String str = StringHandler.transformString(o);
+                String uuid = converter.convert(str);
                 outPut.add(uuid);
             }
 
@@ -36,7 +37,9 @@ public class Generator {
             List<String> originalInput = new ArrayList<>();
             for (String o : outPut) {
                 String uuid = converter.revert(o);
-                originalInput.add(uuid);
+                String str = StringHandler.reverse(uuid);
+
+                originalInput.add(str);
                 Files.write(Paths.get("originalInput.txt"), originalInput);
             }
         } catch (Exception e) {
